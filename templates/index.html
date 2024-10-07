@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+</head>
+<body>
+    <h1>Привет, {{.Username}}!</h1>
+    <a href="/logout">Выйти</a>
+
+    <h2>Добавить заметку</h2>
+    <form action="/addnote" method="POST">
+        <label for="note">Текст заметки:</label><br>
+        <textarea id="note" name="note" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="submit">Добавить заметку</button>
+    </form>
+
+    {{if .Notes}}
+    <h2>Ваши заметки</h2>
+    <ul>
+        {{range .Notes}}
+        <li>{{.}}</li>
+        {{end}}
+    </ul>
+    {{end}}
+</body>
+</html>
+
